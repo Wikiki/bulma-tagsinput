@@ -1,7 +1,6 @@
 class Tagify {
   constructor(element, options = {}) {
     let defaultOptions = {
-      debug: false,
       disabled: false,
       delimiter: ',',
       allowDelete: true,
@@ -35,7 +34,7 @@ class Tagify {
 
       let sib = this.element.nextSibling;
       this.element.parentNode[sib ? 'insertBefore':'appendChild'](this.container, sib);
-      this.element.style.cssText = 'position:absolute;left:0;top:-99px;width:1px;height:1px;opacity:0.01;';
+      this.element.style.cssText = 'position:absolute;left:0;top:0;width:1px;height:1px;opacity:0.01;';
       this.element.tabIndex = -1;
 
       this.enable();
@@ -81,12 +80,14 @@ class Tagify {
             this.select(selectedTag.nextSibling);
           }
     			this.container.removeChild(selectedTag);
+          delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
     			this.setInputWidth();
     			this.save();
         } else if (key === 8) {
           if (selectedTag) {
     				this.select(selectedTag.previousSibling);
     				this.container.removeChild(selectedTag);
+            delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
     				this.setInputWidth();
     				this.save();
     			}
@@ -207,6 +208,7 @@ class Tagify {
           if (selectedTag) {
     				this.select(selectedTag.previousSibling);
     				this.container.removeChild(selectedTag);
+            delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
     				this.setInputWidth();
     				this.save();
     			}
@@ -231,7 +233,7 @@ class Tagify {
 
   setValue(value) {
     (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).forEach((tag) => {
-      delete this.tags[tag.innerHTML];
+      delete this.tags[this.tags.indexOf(tag.innerHTML)];
       this.container.removeChild(tag);
     });
     this.savePartial(value);
