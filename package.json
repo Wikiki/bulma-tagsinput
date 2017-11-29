@@ -1,6 +1,6 @@
 {
   "name": "bulma-tagsinput",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Bulma.io extension to add interaction on input tags",
   "main": "tagsinput.sass",
   "scripts": {
@@ -21,5 +21,17 @@
   "bugs": {
     "url": "https://github.com/Wikiki/bulma-tagsinput/issues"
   },
-  "homepage": "https://github.com/Wikiki/bulma-tagsinput#readme"
+  "homepage": "https://github.com/Wikiki/bulma-tagsinput#readme",
+  "devDependencies": {
+    "bulma": "^0.6.1"
+  },
+  "files": [
+    "tagsinput.sass",
+    "tagsinput.css",
+    "tagsinput.min.css",
+    "tagsinput.js",
+    "tagsinput.min.js",
+    "LICENSE",
+    "README.md"
+  ]
 }
