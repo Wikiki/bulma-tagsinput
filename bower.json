@@ -1,0 +1,23 @@
+{
+  "name": "bulma-tagsinput",
+  "description": "Bulma.io extension to add interaction on input tags",
+  "main": "tagsinput.sass",
+  "authors": [
+    "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Bulma",
+    "bulma",
+    "extensions",
+    "bulma.io"
+  ],
+  "homepage": "https://github.com/Wikiki/bulma-taginputs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
