@@ -58,8 +58,8 @@ class Tagify {
     		this.select();
     		this.savePartial();
       });
-      this.input.addEventListener('keydown', (e) => {
-        let key = e.keyCode || e.which,
+      this.input.addEventListener('keypress', (e) => {
+        let key = e.charCode || e.keyCode || e.which,
           selectedTag,
           activeTag = this.container.querySelector('.is-active'),
           last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).pop(),
