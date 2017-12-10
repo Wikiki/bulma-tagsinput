@@ -46,23 +46,23 @@ class Tagify {
 
       this.element.addEventListener('focus', () => {
         this.container.classList.add('focus');
-        this.select();
+        this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
       });
 
       this.input.addEventListener('focus', () => {
     		this.container.classList.add('focus');
-    		this.select();
+    		this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
       });
       this.input.addEventListener('blur', () => {
     		this.container.classList.remove('focus');
-    		this.select();
+    		this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
     		this.savePartial();
       });
       this.input.addEventListener('keypress', (e) => {
         let key = e.charCode || e.keyCode || e.which,
           selectedTag,
           activeTag = this.container.querySelector('.is-active'),
-          last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).pop(),
+          last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop(),
           atStart = this.caretAtStart(e);
 
         if (activeTag) {
@@ -188,6 +188,8 @@ class Tagify {
 
       let newTagContent = document.createElement('span');
       newTagContent.className = 'tag';
+      newTagContent.classList.add('is-active');
+      this.select(newTagContent);
       newTagContent.innerHTML = tag;
 
       newTag.appendChild(newTagContent);
@@ -223,7 +225,7 @@ class Tagify {
       }
       newTagWrapper.appendChild(newTag);
 
-      this.container.insertBefore( newTagWrapper, this.input);
+      this.container.insertBefore(newTagWrapper, this.input);
     }
   }
 
