@@ -204,7 +204,7 @@ class Tagify {
             atStart = this.caretAtStart(e);
 
           if (activeTag) {
-            selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerText + '"]');
+            selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerText.trim() + '"]');
           }
 
           if (selectedTag) {
