@@ -66,7 +66,7 @@ class Tagify {
           atStart = this.caretAtStart(e);
 
         if (activeTag) {
-          selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerHTML + '"]');
+          selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerHTML.trim() + '"]');
         }
         this.setInputWidth();
 
