@@ -17,6 +17,7 @@ class Tagify {
   init() {
     if (!this.options.disabled) {
       this.tags = [];
+      // The container will visually looks like an input
       this.container = document.createElement('div');
       this.container.className = 'tagsinput';
       this.container.classList.add('field');
@@ -28,6 +29,7 @@ class Tagify {
     	if (!inputType || inputType === 'tags') {
     		inputType = 'text';
       }
+      // Create an invisible input element so user will be able to enter value
       this.input = document.createElement('input');
       this.input.setAttribute('type', inputType);
       this.container.appendChild(this.input);
