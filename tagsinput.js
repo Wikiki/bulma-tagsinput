@@ -1,3 +1,11 @@
+var KEY_BACKSPACE = 8,
+  KEY_TAB = 9,
+  KEY_ENTER = 13,
+  KEY_LEFT = 37,
+  KEY_RIGHT = 39,
+  KEY_DELETE = 46,
+  KEY_COMMA = 188;
+
 class Tagify {
   constructor(element, options = {}) {
     let defaultOptions = {
@@ -72,34 +80,38 @@ class Tagify {
         }
         this.setInputWidth();
 
-        if (key === 13 || key === this.options.delimiter.charCodeAt(0) || key === 188 || key === 9) {
-          if (!this.input.value && (key !== this.options.delimiter.charCodeAt(0) || key === 188)) {
+        if (key === KEY_ENTER || key === this.options.delimiter.charCodeAt(0) || key === KEY_COMMA || key === KEY_TAB) {
+          if (!this.input.value && (key !== this.options.delimiter.charCodeAt(0) || key === KEY_COMMA)) {
             return;
           }
           this.savePartial();
-        } else if (key === 46 && selectedTag) {
-    			if (selectedTag.nextSibling !== this.input) {
-            this.select(selectedTag.nextSibling);
+        } else if (key === KEY_DELETE && selectedTag) {
+    			if (selectedTag.nextSibling) {
+            this.select(selectedTag.nextSibling.querySelector('.tag'));
+          } else if (selectedTag.previousSibling) {
+            this.select(selectedTag.previousSibling.querySelector('.tag'));
           }
     			this.container.removeChild(selectedTag);
           delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
     			this.setInputWidth();
     			this.save();
-        } else if (key === 8) {
+        } else if (key === KEY_BACKSPACE) {
           if (selectedTag) {
-    				this.select(selectedTag.previousSibling);
+            if (selectedTag.previousSibling) {
+    				  this.select(selectedTag.previousSibling.querySelector('.tag'));
+            } else if (selectedTag.nextSibling) {
+    				  this.select(selectedTag.nextSibling.querySelector('.tag'));
+            }
     				this.container.removeChild(selectedTag);
             delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
     				this.setInputWidth();
     				this.save();
-    			}
-    			else if (last && atStart) {
+    			} else if (last && atStart) {
     				this.select(last);
-    			}
-    			else {
+    			} else {
     				return;
           }
-        } else if (key === 37) {
+        } else if (key === KEY_LEFT) {
     			if (selectedTag) {
     				if (selectedTag.previousSibling) {
     					this.select(selectedTag.previousSibling.querySelector('.tag'));
@@ -110,7 +122,7 @@ class Tagify {
     				this.select(last);
     			}
     		}
-    		else if (key === 39) {
+    		else if (key === KEY_RIGHT) {
     			if (!selectedTag) {
             return;
           }
