@@ -21,3 +21,8 @@
   margin-bottom: .1em !important;
   margin-top: .1em !important;
 }
+
+.tagsinput .tag.is-active {
+  background-color: #00d1b2;
+  color: #fff;
+}
