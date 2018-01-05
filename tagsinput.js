@@ -45,33 +45,33 @@ class Tagify {
     if (!this.enabled && !this.options.disabled) {
 
       this.element.addEventListener('focus', () => {
-        this.container.classList.add('focus');
+        this.container.classList.add('is-focused');
         this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
       });
 
       this.input.addEventListener('focus', () => {
-    		this.container.classList.add('focus');
+    		this.container.classList.add('is-focused');
     		this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
       });
       this.input.addEventListener('blur', () => {
-    		this.container.classList.remove('focus');
+    		this.container.classList.remove('is-focused');
     		this.select((Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop());
     		this.savePartial();
       });
-      this.input.addEventListener('keypress', (e) => {
+      this.input.addEventListener('keydown', (e) => {
         let key = e.charCode || e.keyCode || e.which,
           selectedTag,
-          activeTag = this.container.querySelector('.is-active'),
+          activeTag = this.container.querySelector('.tag.is-active'),
           last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag:not(.is-delete)'))).pop(),
-          atStart = this.caretAtStart(e);
+          atStart = this.caretAtStart(this.input);
 
         if (activeTag) {
           selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerHTML.trim() + '"]');
         }
         this.setInputWidth();
 
-        if (key === 13 || key === this.options.delimiter.charCodeAt(0) || key === 9) {
-          if (!this.input.value && key !== this.options.delimiter.charCodeAt(0)) {
+        if (key === 13 || key === this.options.delimiter.charCodeAt(0) || key === 188 || key === 9) {
+          if (!this.input.value && (key !== this.options.delimiter.charCodeAt(0) || key === 188)) {
             return;
           }
           this.savePartial();
@@ -100,7 +100,7 @@ class Tagify {
         } else if (key === 37) {
     			if (selectedTag) {
     				if (selectedTag.previousSibling) {
-    					select(selectedTag.previousSibling);
+    					this.select(selectedTag.previousSibling.querySelector('.tag'));
     				}
     			} else if (!atStart) {
     				return;
@@ -112,7 +112,7 @@ class Tagify {
     			if (!selectedTag) {
             return;
           }
-    			this.select(selectedTag.nextSibling);
+    			this.select(selectedTag.nextSibling.querySelector('.tag'));
     		}
     		else {
     			return this.select();
@@ -201,7 +201,7 @@ class Tagify {
           let selectedTag,
             activeTag = e.target.parentNode,
             last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).pop(),
-            atStart = this.caretAtStart(e);
+            atStart = this.caretAtStart(this.input);
 
           if (activeTag) {
             selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerText.trim() + '"]');
