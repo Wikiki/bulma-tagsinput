@@ -28,8 +28,9 @@ if (typeof Object.assign != 'function') {
   });
 }
 
+const MOUSE_EVENTS = ['click', 'touchstart'];
 
-var KEY_BACKSPACE = 8,
+const KEY_BACKSPACE = 8,
   KEY_TAB = 9,
   KEY_ENTER = 13,
   KEY_LEFT = 37,
@@ -243,7 +244,8 @@ class Tagify {
         let newTagDeleteButton = document.createElement('a');
         newTagDeleteButton.className = 'tag';
         newTagDeleteButton.classList.add('is-delete');
-        newTagDeleteButton.addEventListener('click', (e) => {
+        MOUSE_EVENTS.forEach((event) => {
+          newTagDeleteButton.addEventListener(event, (e) => {
           let selectedTag,
             activeTag = e.target.parentNode,
             last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).pop(),
@@ -267,6 +269,7 @@ class Tagify {
     				return;
           }
         });
+      });
         newTag.appendChild(newTagDeleteButton);
       }
       newTagWrapper.appendChild(newTag);
