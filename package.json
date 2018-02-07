@@ -1,6 +1,6 @@
 {
   "name": "bulma-tagsinput",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Bulma.io extension to add interaction on input tags",
   "main": "tagsinput.sass",
   "scripts": {
@@ -22,15 +22,30 @@
     "url": "https://github.com/Wikiki/bulma-tagsinput/issues"
   },
   "homepage": "https://github.com/Wikiki/bulma-tagsinput#readme",
+  "scripts": {
+    "build": "gulp"
+  },
   "devDependencies": {
-    "bulma": "^0.6.1"
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "babel-core": "^7.0.0-beta.3",
+    "bulma": "^0.6.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "run-sequence": "^2.2.1"
   },
   "files": [
-    "tagsinput.sass",
-    "bulma-tagsinput.css",
-    "bulma-tagsinput.min.css",
-    "tagsinput.js",
-    "tagsinput.min.js",
+    "dist/tagsinput.sass",
+    "dist/bulma-tagsinput.min.css",
+    "dist/tagsinput.js",
+    "dist/tagsinput.min.js",
     "LICENSE",
     "README.md"
   ]
