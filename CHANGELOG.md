@@ -1,3 +1,24 @@
+<a name="0.2.4"></a>
+## [0.2.4](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.3...0.2.4) (2018-02-09)
+
+
+
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/Wikiki/bulma-tagsinput/compare/0.1.3...0.2.3) (2018-02-09)
+
+
+### Bug Fixes
+
+* **bower:** Add missing version ([cbe926e](https://github.com/Wikiki/bulma-tagsinput/commit/cbe926e))
+
+
+### Features
+
+* **gulp:** Add gulp dependencies ([c2d9f29](https://github.com/Wikiki/bulma-tagsinput/commit/c2d9f29))
+* **gulp:** Add release task ([54eb049](https://github.com/Wikiki/bulma-tagsinput/commit/54eb049))
+
+
+
 # Change Log
 
 ## [Unreleased](https://github.com/wikiki/bulma-tagsinput/tree/HEAD)
