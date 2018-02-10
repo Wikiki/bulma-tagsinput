@@ -1,3 +1,14 @@
+<a name="0.2.5"></a>
+## [0.2.5](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.4...0.2.5) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Correct dist filenames ([60770e9](https://github.com/Wikiki/bulma-tagsinput/commit/60770e9))
+* **package.json:** File paths ([71d2b72](https://github.com/Wikiki/bulma-tagsinput/commit/71d2b72))
+
+
+
 <a name="0.2.4"></a>
 ## [0.2.4](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.3...0.2.4) (2018-02-09)
 
