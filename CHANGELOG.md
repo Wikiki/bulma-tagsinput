@@ -1,3 +1,13 @@
+<a name="0.2.6"></a>
+## [0.2.6](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.5...0.2.6) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Use UMD modules style ([3b5c8e6](https://github.com/Wikiki/bulma-tagsinput/commit/3b5c8e6))
+
+
+
 <a name="0.2.5"></a>
 ## [0.2.5](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.4...0.2.5) (2018-02-10)
 
