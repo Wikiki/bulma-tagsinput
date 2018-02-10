@@ -1,3 +1,6 @@
+var bulmaTagsinput = (function () {
+'use strict';
+
 if (typeof Object.assign != 'function') {
   // Must be writable: true, enumerable: false, configurable: true
   Object.defineProperty(Object, "assign", {
@@ -30,15 +33,15 @@ if (typeof Object.assign != 'function') {
 
 const MOUSE_EVENTS = ['click', 'touchstart'];
 
-const KEY_BACKSPACE = 8,
-  KEY_TAB = 9,
-  KEY_ENTER = 13,
-  KEY_LEFT = 37,
-  KEY_RIGHT = 39,
-  KEY_DELETE = 46,
-  KEY_COMMA = 188;
+const KEY_BACKSPACE = 8;
+const KEY_TAB = 9;
+const KEY_ENTER = 13;
+const KEY_LEFT = 37;
+const KEY_RIGHT = 39;
+const KEY_DELETE = 46;
+const KEY_COMMA = 188;
 
-export default class Tagify {
+class Tagify {
   constructor(element, options = {}) {
     let defaultOptions = {
       disabled: false,
@@ -47,7 +50,7 @@ export default class Tagify {
       lowercase: false,
       uppercase: false,
       duplicates: true
-    }
+    };
     this.element = element;
     this.options = Object.assign({}, defaultOptions, options);
 
@@ -211,7 +214,7 @@ export default class Tagify {
     }
     if (Array.isArray(text)) {
       return text.forEach((text) => {
-        this.addTag(text)
+        this.addTag(text);
       });
     }
 
@@ -357,3 +360,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
       new Tagify(tagInput);
   });
 });
+
+return Tagify;
+
+}());
