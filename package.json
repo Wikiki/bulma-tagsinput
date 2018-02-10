@@ -2,7 +2,7 @@
   "name": "bulma-tagsinput",
   "version": "0.2.4",
   "description": "Bulma.io extension to add interaction on input tags",
-  "main": "tagsinput.sass",
+  "main": "dist/bulma-tagsinput.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -47,10 +47,10 @@
     "run-sequence": "^2.2.1"
   },
   "files": [
-    "dist/tagsinput.sass",
+    "dist/bulma-tagsinput.sass",
     "dist/bulma-tagsinput.min.css",
-    "dist/tagsinput.js",
-    "dist/tagsinput.min.js",
+    "dist/bulma-tagsinput.js",
+    "dist/bulma-tagsinput.min.js",
     "LICENSE",
     "README.md"
   ]

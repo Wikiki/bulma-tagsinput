@@ -38,7 +38,7 @@ const KEY_BACKSPACE = 8,
   KEY_DELETE = 46,
   KEY_COMMA = 188;
 
-class Tagify {
+export default class Tagify {
   constructor(element, options = {}) {
     let defaultOptions = {
       disabled: false,
