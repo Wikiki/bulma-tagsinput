@@ -1,3 +1,39 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.7...1.0.0) (2018-02-10)
+
+
+### Features
+
+* **rollup:** Add Rollup transpilation ([548c633](https://github.com/Wikiki/bulma-tagsinput/commit/548c633))
+
+
+
+<a name="0.2.7"></a>
+## [0.2.7](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.6...0.2.7) (2018-02-10)
+
+
+
+<a name="0.2.6"></a>
+## [0.2.6](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.5...0.2.6) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Use UMD modules style ([3b5c8e6](https://github.com/Wikiki/bulma-tagsinput/commit/3b5c8e6))
+
+
+
+<a name="0.2.5"></a>
+## [0.2.5](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.4...0.2.5) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Correct dist filenames ([60770e9](https://github.com/Wikiki/bulma-tagsinput/commit/60770e9))
+* **package.json:** File paths ([71d2b72](https://github.com/Wikiki/bulma-tagsinput/commit/71d2b72))
+
+
+
 <a name="0.2.4"></a>
 ## [0.2.4](https://github.com/Wikiki/bulma-tagsinput/compare/0.2.3...0.2.4) (2018-02-09)
 
