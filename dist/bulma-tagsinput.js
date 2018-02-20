@@ -1,5 +1,8 @@
-var bulmaTagsinput = (function () {
-'use strict';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define('bulmaTagsinput', factory) :
+	(global.bulmaTagsinput = factory());
+}(this, (function () { 'use strict';
 
 if (typeof Object.assign != 'function') {
   // Must be writable: true, enumerable: false, configurable: true
@@ -363,4 +366,4 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 return Tagify;
 
-}());
+})));
