@@ -2,7 +2,7 @@
   "name": "bulma-tagsinput",
   "description": "Bulma.io extension to add interaction on input tags",
   "main": "tagsinput.sass",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "authors": [
     "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io)"
   ],
