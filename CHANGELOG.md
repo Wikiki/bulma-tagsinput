@@ -1,3 +1,8 @@
+<a name="1.0.7"></a>
+## [1.0.7](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.6...1.0.7) (2018-03-29)
+
+
+
 <a name="1.0.6"></a>
 ## [1.0.6](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.1...1.0.6) (2018-02-21)
 
