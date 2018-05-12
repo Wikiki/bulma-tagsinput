@@ -135,7 +135,8 @@ class Tagify {
             this.select(selectedTag.previousSibling.querySelector('.tag'));
           }
     			this.container.removeChild(selectedTag);
-          delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
+          this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
+          console.log(this.tags);
     			this.setInputWidth();
     			this.save();
         } else if (key === KEY_BACKSPACE) {
@@ -146,7 +147,8 @@ class Tagify {
     				  this.select(selectedTag.nextSibling.querySelector('.tag'));
             }
     				this.container.removeChild(selectedTag);
-            delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
+            this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
+            console.log(this.tags);
     				this.setInputWidth();
     				this.save();
     			} else if (last && atStart) {
@@ -233,7 +235,9 @@ class Tagify {
       tag = tag.toUpperCase();
     }
     if (this.element.getAttribute('duplicates') == 'true' || this.options['duplicates'] || this.tags.indexOf(tag) === -1) {
+      console.log(this.tags);
       this.tags.push(tag);
+      console.log(this.tags);
 
       let newTagWrapper = document.createElement('div');
       newTagWrapper.className = 'control';
@@ -268,7 +272,8 @@ class Tagify {
           if (selectedTag) {
     				this.select(selectedTag.previousSibling);
     				this.container.removeChild(selectedTag);
-            delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
+            this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
+            console.log(this.tags);
     				this.setInputWidth();
     				this.save();
     			}
@@ -294,7 +299,8 @@ class Tagify {
 
   setValue(value) {
     (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).forEach((tag) => {
-      delete this.tags[this.tags.indexOf(tag.innerHTML)];
+      this.tags.splice(this.tags.indexOf(tag.innerHTML), 1);
+      console.log(this.tags);
       this.container.removeChild(tag);
     });
     this.savePartial(value);
