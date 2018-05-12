@@ -1,3 +1,13 @@
+<a name="1.0.8"></a>
+## [1.0.8](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.7...1.0.8) (2018-05-12)
+
+
+### Bug Fixes
+
+* [#20](https://github.com/Wikiki/bulma-tagsinput/issues/20) Deleted tags result in leading commas ([25349a1](https://github.com/Wikiki/bulma-tagsinput/commit/25349a1))
+
+
+
 <a name="1.0.7"></a>
 ## [1.0.7](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.6...1.0.7) (2018-03-29)
 

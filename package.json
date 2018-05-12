@@ -1,6 +1,6 @@
 {
   "name": "bulma-tagsinput",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Bulma.io extension to add interaction on input tags",
   "main": "dist/bulma-tagsinput.sass",
   "scripts": {
