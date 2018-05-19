@@ -49,6 +49,8 @@ export default class Tagify {
       duplicates: true
     }
     this.element = element;
+    if( element.getAttribute("data-allow-delete") )
+      defaultOptions.allowDelete = element.getAttribute("data-allow-delete") == 'true';
     this.options = Object.assign({}, defaultOptions, options);
 
     this.init();
