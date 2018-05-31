@@ -1,3 +1,13 @@
+<a name="1.0.11"></a>
+## [1.0.11](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.9...1.0.11) (2018-05-31)
+
+
+### Bug Fixes
+
+* options on attach method ([942d936](https://github.com/Wikiki/bulma-tagsinput/commit/942d936))
+
+
+
 <a name="1.0.10"></a>
 ## [1.0.10](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.9...1.0.10) (2018-05-31)
 
