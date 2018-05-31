@@ -1,33 +1,3 @@
-if (typeof Object.assign != 'function') {
-  // Must be writable: true, enumerable: false, configurable: true
-  Object.defineProperty(Object, "assign", {
-    value: function assign(target, varArgs) { // .length of function is 2
-      'use strict';
-      if (target == null) { // TypeError if undefined or null
-        throw new TypeError('Cannot convert undefined or null to object');
-      }
-
-      var to = Object(target);
-
-      for (var index = 1; index < arguments.length; index++) {
-        var nextSource = arguments[index];
-
-        if (nextSource != null) { // Skip over if undefined or null
-          for (var nextKey in nextSource) {
-            // Avoid bugs when hasOwnProperty is shadowed
-            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-              to[nextKey] = nextSource[nextKey];
-            }
-          }
-        }
-      }
-      return to;
-    },
-    writable: true,
-    configurable: true
-  });
-}
-
 const MOUSE_EVENTS = ['click', 'touchstart'];
 
 const KEY_BACKSPACE = 8,
@@ -39,7 +9,7 @@ const KEY_BACKSPACE = 8,
   KEY_COMMA = 188;
 
 export default class Tagify {
-  constructor(element, options = {}) {
+  constructor(selector, options = {}) {
     let defaultOptions = {
       disabled: false,
       delimiter: ',',
@@ -48,10 +18,44 @@ export default class Tagify {
       uppercase: false,
       duplicates: true
     }
-    this.element = element;
+
+    this.element = typeof selector === 'string'
+      ? document.querySelector(selector)
+      : selector;
+    // An invalid selector or non-DOM node has been provided.
+    if (!this.element) {
+      throw new Error('An invalid selector or non-DOM node has been provided.');
+    }
+
     this.options = Object.assign({}, defaultOptions, options);
+    if (this.element.dataset.hasOwnProperty('lowercase')) {
+      this.options.lowercase = this.element.dataset('lowercase')
+    }
+    if (this.element.dataset.hasOwnProperty('uppercase')) {
+      this.options.lowercase = this.element.dataset('uppercase')
+    }
+    if (this.element.dataset.hasOwnProperty('duplicates')) {
+      this.options.lowercase = this.element.dataset('duplicates')
+    }
 
     this.init();
+  }
+
+  /**
+   * Initiate all DOM element containing tagsinput class
+   * @method
+   * @return {Array} Array of all TagsInput instances
+   */
+  static attach(selector = 'input[type="tags"]') {
+    let tagsinputlInstances = new Array();
+
+    const tagsinputs = document.querySelectorAll(selector);
+    [].forEach.call(tagsinputs, tagsinput => {
+      setTimeout(() => {
+        tagsinputlInstances.push(new Tagify(tagsinput));
+      }, 100);
+    });
+    return tagsinputlInstances;
   }
 
   init() {
@@ -129,7 +133,7 @@ export default class Tagify {
             this.select(selectedTag.previousSibling.querySelector('.tag'));
           }
     			this.container.removeChild(selectedTag);
-          delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
+          this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
     			this.setInputWidth();
     			this.save();
         } else if (key === KEY_BACKSPACE) {
@@ -140,7 +144,7 @@ export default class Tagify {
     				  this.select(selectedTag.nextSibling.querySelector('.tag'));
             }
     				this.container.removeChild(selectedTag);
-            delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
+            this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
     				this.setInputWidth();
     				this.save();
     			} else if (last && atStart) {
@@ -220,13 +224,13 @@ export default class Tagify {
       return false;
     }
 
-    if (this.element.getAttribute('lowercase') || this.options['lowercase'] == 'true') {
+    if (this.options['lowercase'] == 'true') {
       tag = tag.toLowerCase();
     }
-    if (this.element.getAttribute('uppercase') || this.options['uppercase'] == 'true') {
+    if (this.options['uppercase'] == 'true') {
       tag = tag.toUpperCase();
     }
-    if (this.element.getAttribute('duplicates') == 'true' || this.options['duplicates'] || this.tags.indexOf(tag) === -1) {
+    if (this.options['duplicates'] || this.tags.indexOf(tag) === -1) {
       this.tags.push(tag);
 
       let newTagWrapper = document.createElement('div');
@@ -262,7 +266,7 @@ export default class Tagify {
           if (selectedTag) {
     				this.select(selectedTag.previousSibling);
     				this.container.removeChild(selectedTag);
-            delete this.tags[this.tags.indexOf(selectedTag.getAttribute('data-tag'))];
+            this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
     				this.setInputWidth();
     				this.save();
     			}
@@ -288,7 +292,7 @@ export default class Tagify {
 
   setValue(value) {
     (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).forEach((tag) => {
-      delete this.tags[this.tags.indexOf(tag.innerHTML)];
+      this.tags.splice(this.tags.indexOf(tag.innerHTML), 1);
       this.container.removeChild(tag);
     });
     this.savePartial(value);
@@ -350,10 +354,3 @@ export default class Tagify {
     this.element = null;
   }
 }
-
-document.addEventListener( 'DOMContentLoaded', function () {
-  let tagInputs = document.querySelectorAll('input[type="tags"]');
-  [].forEach.call(tagInputs, function(tagInput) {
-      new Tagify(tagInput);
-  });
-});
