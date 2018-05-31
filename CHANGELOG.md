@@ -1,3 +1,18 @@
+<a name="1.0.9"></a>
+## [1.0.9](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.8...1.0.9) (2018-05-31)
+
+
+### Bug Fixes
+
+* issue [#49](https://github.com/Wikiki/bulma-tagsinput/issues/49) Potential Bug: TagsInput allows duplicate entries ([d88971a](https://github.com/Wikiki/bulma-tagsinput/commit/d88971a))
+
+
+
+<a name="1.0.5"></a>
+## [1.0.5](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.4...1.0.5) (2018-02-21)
+
+
+
 <a name="1.0.8"></a>
 ## [1.0.8](https://github.com/Wikiki/bulma-tagsinput/compare/1.0.7...1.0.8) (2018-05-12)
 
