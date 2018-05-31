@@ -46,16 +46,16 @@ export default class Tagify {
    * @method
    * @return {Array} Array of all TagsInput instances
    */
-  static attach(selector = 'input[type="tags"]') {
-    let tagsinputlInstances = new Array();
+  static attach(selector = 'input[type="tags"]', options = {}) {
+    let tagsinputsInstances = new Array();
 
     const tagsinputs = document.querySelectorAll(selector);
     [].forEach.call(tagsinputs, tagsinput => {
       setTimeout(() => {
-        tagsinputlInstances.push(new Tagify(tagsinput));
+        tagsinputsInstances.push(new Tagify(tagsinput, options));
       }, 100);
     });
-    return tagsinputlInstances;
+    return tagsinputsInstances;
   }
 
   init() {
