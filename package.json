@@ -4,7 +4,9 @@
   "description": "Bulma.io extension to add interaction on input tags",
   "main": "dist/bulma-tagsinput.sass",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit": "git-cz",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
