@@ -29,6 +29,7 @@
     "babel-core": "latest",
     "babel-jest": "latest",
     "babel-loader": "latest",
+    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "latest",
     "babel-preset-env": "latest",
     "bulma": "latest",

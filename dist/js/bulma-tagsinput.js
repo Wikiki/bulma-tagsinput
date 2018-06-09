@@ -702,5 +702,5 @@ var isDate = function isDate(unknown) {
 };
 
 /***/ })
-/******/ ])["default"];
+/******/ ]);
 });

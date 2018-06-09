@@ -1,4 +1,3 @@
-
 const pkg                 = require('./package.json');
 const gulp                = require('gulp');
 const webpack             = require('webpack');
@@ -101,7 +100,7 @@ gulp.task('build:scripts', function() {
 				filename: config.javascript.output.filename + '.js',
 				library: config.javascript.output.name,
 				libraryTarget: config.javascript.output.format,
-				libraryExport: 'default'
+				// libraryExport: 'default'
 			},
 			module: {
 				rules: [
@@ -114,7 +113,10 @@ gulp.task('build:scripts', function() {
 						}
 					},
 				],
-			}
+			},
+			// plugins: [
+			// 	new webpack.optimize.ModuleConcatenationPlugin()
+			// ]
 		}), webpack)
 		.pipe(concat(config.javascript.output.filename + '.js'))
 		.pipe(gulp.dest(config.javascript.destination))
