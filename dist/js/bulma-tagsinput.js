@@ -105,15 +105,15 @@ var KEY_BACKSPACE = 8,
     KEY_DELETE = 46,
     KEY_COMMA = 188;
 
-var bulmaTagsInput = function (_EventEmitter) {
-	_inherits(bulmaTagsInput, _EventEmitter);
+var bulmaTagsinput = function (_EventEmitter) {
+	_inherits(bulmaTagsinput, _EventEmitter);
 
-	function bulmaTagsInput(selector) {
+	function bulmaTagsinput(selector) {
 		var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-		_classCallCheck(this, bulmaTagsInput);
+		_classCallCheck(this, bulmaTagsinput);
 
-		var _this = _possibleConstructorReturn(this, (bulmaTagsInput.__proto__ || Object.getPrototypeOf(bulmaTagsInput)).call(this));
+		var _this = _possibleConstructorReturn(this, (bulmaTagsinput.__proto__ || Object.getPrototypeOf(bulmaTagsinput)).call(this));
 
 		_this.element = __WEBPACK_IMPORTED_MODULE_2__utils_type__["a" /* isString */](selector) ? document.querySelector(selector) : selector;
 		// An invalid selector or non-DOM node has been provided.
@@ -146,7 +146,7 @@ var bulmaTagsInput = function (_EventEmitter) {
    */
 
 
-	_createClass(bulmaTagsInput, [{
+	_createClass(bulmaTagsinput, [{
 		key: 'init',
 		value: function init() {
 			if (!this.options.disabled) {
@@ -474,17 +474,17 @@ var bulmaTagsInput = function (_EventEmitter) {
 			var elements = document.querySelectorAll(selector);
 			[].forEach.call(elements, function (element) {
 				setTimeout(function () {
-					instances.push(new bulmaTagsInput(element, options));
+					instances.push(new bulmaTagsinput(element, options));
 				}, 100);
 			});
 			return instances;
 		}
 	}]);
 
-	return bulmaTagsInput;
+	return bulmaTagsinput;
 }(__WEBPACK_IMPORTED_MODULE_0__utils_events__["a" /* default */]);
 
-/* harmony default export */ __webpack_exports__["default"] = (bulmaTagsInput);
+/* harmony default export */ __webpack_exports__["default"] = (bulmaTagsinput);
 
 /***/ }),
 /* 1 */
@@ -702,5 +702,5 @@ var isDate = function isDate(unknown) {
 };
 
 /***/ })
-/******/ ]);
+/******/ ])["default"];
 });

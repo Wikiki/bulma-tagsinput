@@ -11,7 +11,7 @@ const KEY_BACKSPACE = 8,
 	KEY_DELETE = 46,
 	KEY_COMMA = 188;
 
-export default class bulmaTagsInput extends EventEmitter {
+class bulmaTagsinput extends EventEmitter {
 	constructor(selector, options = {}) {
 		super();
 
@@ -52,7 +52,7 @@ export default class bulmaTagsInput extends EventEmitter {
 		const elements = document.querySelectorAll(selector);
 		[].forEach.call(elements, element => {
 			setTimeout(() => {
-				instances.push(new bulmaTagsInput(element, options));
+				instances.push(new bulmaTagsinput(element, options));
 			}, 100);
 		});
 		return instances;
@@ -354,3 +354,5 @@ export default class bulmaTagsInput extends EventEmitter {
 		this.element = null;
 	}
 }
+
+export default bulmaTagsinput;
