@@ -29,13 +29,13 @@ class bulmaTagsinput extends EventEmitter {
 		};
 
 		if (this.element.dataset.hasOwnProperty('lowercase')) {
-			this.options.lowercase = this.element.dataset('lowercase');
+			this.options.lowercase = this.element.dataset.lowercase.toLowerCase() === 'true';
 		}
 		if (this.element.dataset.hasOwnProperty('uppercase')) {
-			this.options.lowercase = this.element.dataset('uppercase');
+			this.options.uppercase = this.element.dataset.uppercase.toLowerCase() === 'true';
 		}
 		if (this.element.dataset.hasOwnProperty('duplicates')) {
-			this.options.lowercase = this.element.dataset('duplicates');
+			this.options.duplicates = this.element.dataset.duplicates.toLowerCase() === 'true';
 		}
 
 		this.init();
@@ -224,10 +224,10 @@ class bulmaTagsinput extends EventEmitter {
 			return false;
 		}
 
-		if (this.options['lowercase'] == 'true') {
+		if (this.options['lowercase']) {
 			tag = tag.toLowerCase();
 		}
-		if (this.options['uppercase'] == 'true') {
+		if (this.options['uppercase']) {
 			tag = tag.toUpperCase();
 		}
 		if (this.options['duplicates'] || this.tags.indexOf(tag) === -1) {
