@@ -253,30 +253,7 @@ class bulmaTagsinput extends EventEmitter {
 				newTagDeleteButton.className = 'tag';
 				newTagDeleteButton.classList.add('is-delete');
 				this._clickEvents.forEach((event) => {
-					newTagDeleteButton.addEventListener(event, (e) => {
-						let selectedTag,
-							activeTag = e.target.parentNode,
-							last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).pop(),
-							atStart = this.caretAtStart(this.input);
-
-						if (activeTag) {
-							selectedTag = this.container.querySelector('[data-tag="' + activeTag.innerText.trim() + '"]');
-						}
-
-						if (selectedTag) {
-    				this.select(selectedTag.previousSibling);
-    				this.container.removeChild(selectedTag);
-							this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
-    				this.setInputWidth();
-    				this.save();
-    			}
-    			else if (last && atStart) {
-    				this.select(last);
-    			}
-    			else {
-    				return;
-						}
-					});
+					newTagDeleteButton.addEventListener(event, (e) => this.removeTag(e.target.closest("[data-tag]")));
 				});
 				newTag.appendChild(newTagDeleteButton);
 			}
@@ -286,6 +263,35 @@ class bulmaTagsinput extends EventEmitter {
 		}
 	}
 
+	/**
+	 * removes a tag
+	 * @param {Node|HTMLElement} tag (with [data-tag])
+	 */
+	removeTag(tag) {
+		let last = (Array.prototype.slice.call(this.container.querySelectorAll('.tag'))).pop(), // last delete X
+			atStart = this.caretAtStart(this.input);
+
+		if (tag) {
+			this.select(tag.querySelector('span.tag'));
+
+			// call onDelete callback if available, cancel deletion if it returns false
+			if (typeof this.options.onDelete === 'function' && this.options.onDelete(tag) === false) return;
+
+			this.container.removeChild(tag);
+			this.tags.splice(this.tags.indexOf(tag.dataset.tag), 1);
+			this.setInputWidth();
+			this.save();
+		} else if (last && atStart) {
+			this.select(last);
+		} else {
+			return;
+		}
+	}
+
+	/**
+	 * returns a delimiter-joined list of tags
+	 * @return {string}
+	 */
 	getValue() {
 		return this.tags.join(this.options.delimiter);
 	}
