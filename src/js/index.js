@@ -93,7 +93,7 @@ class bulmaTagsinput extends EventEmitter {
 	}
 
 	enable() {
-		if (!this.enabled && !this.options.disabled) {
+		if (!this.enabled && !this.options.disabled && !this.options.disableEvents) {
 
 			this.element.addEventListener('focus', () => {
 				this.container.classList.add('is-focused');

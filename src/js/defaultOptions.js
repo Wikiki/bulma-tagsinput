@@ -4,8 +4,9 @@ const defaultOptions = {
 	allowDelete: true,
 	lowercase: false,
 	uppercase: false,
-	duplicates: true
+	duplicates: true,
+	disableEvents: false,
 };
-  
+
 export default defaultOptions;
   
