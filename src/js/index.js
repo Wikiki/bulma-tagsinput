@@ -42,14 +42,19 @@ class bulmaTagsinput extends EventEmitter {
 	}
 
 	/**
-   * Initiate all DOM element containing tagsinput class
-   * @method
-   * @return {Array} Array of all TagsInput instances
-   */
+	 * Initiate all DOM element containing tagsinput class
+	 * @method
+	 * @param {string|NodeListOf<Element>} selector
+	 * @param {object} options
+	 * @return {Array} Array of all TagsInput instances
+	 */
 	static attach(selector = 'input[type="tags"]', options = {}) {
-		let instances = new Array();
+		let instances = [];
 
-		const elements = document.querySelectorAll(selector);
+		const elements = (typeof selector === 'object' && selector !== null)
+			? selector
+			: document.querySelectorAll(selector);
+
 		[].forEach.call(elements, element => {
 			setTimeout(() => {
 				instances.push(new bulmaTagsinput(element, options));
