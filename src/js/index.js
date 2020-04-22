@@ -269,8 +269,12 @@ class bulmaTagsinput extends EventEmitter {
 						}
 
 						if (selectedTag) {
-    				this.select(selectedTag.previousSibling);
-    				this.container.removeChild(selectedTag);
+							this.select(selectedTag.previousSibling);
+
+							// call onDelete callback if available, cancel deletion if it returns false
+							if (typeof this.options.onDelete === 'function' && this.options.onDelete(selectedTag) === false) return;
+
+							this.container.removeChild(selectedTag);
 							this.tags.splice(this.tags.indexOf(selectedTag.getAttribute('data-tag')), 1);
     				this.setInputWidth();
     				this.save();
