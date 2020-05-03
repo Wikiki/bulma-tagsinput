@@ -1,3 +1,5 @@
+## Package is abandoned in favor of http://github.com/creativebulma/bulma-tagsinput
+
 # bulma-taginputs
 Bulma.io extension to add interaction on input tags
 (find all my bulma's extensions [here](https://wikiki.github.io/))
